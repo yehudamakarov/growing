@@ -20,7 +20,12 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    erb :index
+    unless logged_in?
+      erb :index
+    else
+      redirect to("/users/#{current_user.slug}")
+    end
+
   end
 
   get '/signup' do

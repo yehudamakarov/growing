@@ -6,7 +6,7 @@ user = User.create(username: "testuser", email: "testuser@gmail.com", password: 
 
 fake_user = User.create(username: "fakeuser", email: "fakeuser@gmail.com", password: "password")
 
-Task.create(name: "be happy 1", effect: "this is amazing", user: user, day: "sunday")
+Task.create(name: "be happy 1", effect: "this is amazing", user: user, day: "sunday, monday, tuesday")
 Task.create(name: "be happy 1.1", effect: "this is amazing", user: user, day: "sunday")
 Task.create(name: "be happy 1.2", effect: "this is amazing", user: user, day: "sunday")
 Task.create(name: "be happy 2", effect: "this is amazing", user: user, day: "monday")

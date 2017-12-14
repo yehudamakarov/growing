@@ -25,7 +25,13 @@ class TasksController < ApplicationController
   end
 
   post '/tasks' do
-    binding.pry
+    @user = current_user
+    params[:task][:user] = @user
+    params[:task][:day] = params[:task][:day].join(", ")
+
+    @task = Task.create(params[:task])
+
+    redirect to("/tasks/id/#{@task.id}")
   end
 
 
