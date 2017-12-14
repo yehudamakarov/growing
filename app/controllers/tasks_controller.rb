@@ -7,15 +7,15 @@ class TasksController < ApplicationController
     erb :"day_tasks/show.html"
   end
 
-  get '/users/:slug/tasks/id/:id' do
-    @user = User.find_by_slug(params[:slug])
+  get '/tasks/id/:id' do
     @task = Task.find_by_id(params[:id])
+    @user = @task.user
     erb :"tasks/show.html"
   end
 
-  get '/users/:slug/tasks/id/:id/edit' do
-    @user = User.find_by_slug(params[:slug])
+  get '/tasks/id/:id/edit' do
     @task = Task.find_by_id(params[:id])
+    @user = @task.user
     erb :"tasks/edit.html"
   end
 

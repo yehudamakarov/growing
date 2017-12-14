@@ -10,7 +10,7 @@
 
     <% @day_tasks.each do |t| %>
       <div>
-        <a href="/users/<%= t.user.slug %>/tasks/id/<%= t.id %>"><%= t.name %></a>
+        <a href="/tasks/id/<%= t.id %>"><%= t.name %></a>
       </div>
     <% end %>
   </body>

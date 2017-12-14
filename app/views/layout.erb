@@ -16,7 +16,10 @@
 <body>
   <a href="/logout">Log Out</a>
   <div class="wrapper">
-
+    
+    <% if logged_in? %>
+      <a href="/tasks/new">New Task</a>
+    <% end %>
 
       <%= yield %>
 

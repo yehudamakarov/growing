@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>All Users</title>
+  </head>
+  <body>
+    <h2>All Users</h2>
+
+    <%= @users.each do |u| %>
+      <div>
+        <a href="/users/<%= u.slug %>"><%= u.username %></a>
+      </div>
+  </body>
+</html>
