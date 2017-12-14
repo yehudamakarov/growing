@@ -7,4 +7,5 @@ end
 
 
 run ApplicationController
+use TasksController
 use UsersController
