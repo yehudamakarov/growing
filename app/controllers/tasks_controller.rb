@@ -13,25 +13,25 @@ class TasksController < ApplicationController
     erb :"tasks/show.html"
   end
 
-  get '/tasks/id/:id/edit' do
-    @task = Task.find_by_id(params[:id])
-    @user = @task.user
-    erb :"tasks/edit.html"
-  end
-
   get '/tasks/new' do
     @user = current_user
+    @days = Day.all
     erb :"tasks/new.html"
   end
 
   post '/tasks' do
     @user = current_user
     params[:task][:user] = @user
-    params[:task][:day] = params[:task][:day].join(", ")
 
     @task = Task.create(params[:task])
 
     redirect to("/tasks/id/#{@task.id}")
+  end
+
+  get '/tasks/id/:id/edit' do
+    @task = Task.find_by_id(params[:id])
+    @user = @task.user
+    erb :"tasks/edit.html"
   end
 
 
