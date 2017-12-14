@@ -2,13 +2,7 @@ class UsersController < ApplicationController
 
   # GET: /users
   get "/users" do
-binding.pry
-    if logged_in?
-      @user = current_user
-      erb :"/users/index.html"
-    else
-      redirect to('/login')
-    end
+    erb :"/users/index.html" 
   end
 
   # GET: /users/new
@@ -21,9 +15,9 @@ binding.pry
     redirect "/users"
   end
 
-  # GET: /users/5
-  get "/users/:id" do
-    erb :"/users/show.html"
+  get "/users/:slug" do
+    @user = User.find_by_slug(params[:slug])
+      erb :"/users/show.html"
   end
 
   # GET: /users/5/edit

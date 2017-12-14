@@ -29,10 +29,9 @@ class ApplicationController < Sinatra::Base
 
   post '/signup' do
     @user = User.new(params)
-binding.pry
     if @user.save
       session[:user_id] = @user.id
-      redirect to("/user/#{@user.slug}")
+      redirect to("/users/#{@user.slug}")
     else
       redirect to('/signup')
     end
