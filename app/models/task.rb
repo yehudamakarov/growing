@@ -1,5 +1,7 @@
 class Task < ActiveRecord::Base
   belongs_to :user
+  has_many :day_tasks
+  has_many :days, through: :day_tasks
 
   def slug
     self.username.downcase.gsub(" ", "-")
