@@ -24,5 +24,9 @@ class TasksController < ApplicationController
     erb :"tasks/new.html"
   end
 
+  post '/tasks' do
+    binding.pry
+  end
+
 
 end

@@ -16,8 +16,8 @@
 <body>
   <a href="/logout">Log Out</a>
   <div class="wrapper">
-    
-    <% if logged_in? %>
+
+    <% if logged_in? && request.path_info != "/tasks/new" %>
       <a href="/tasks/new">New Task</a>
     <% end %>
 
