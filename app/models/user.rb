@@ -10,4 +10,8 @@ class User < ActiveRecord::Base
   def self.find_by_slug(slug)
     User.all.find {|u| u.slug == slug}
   end
+
+  def day(day_of_week)
+    self.tasks.find_all {|t| t.day == day_of_week}
+  end
 end
