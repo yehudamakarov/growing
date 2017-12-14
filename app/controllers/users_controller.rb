@@ -11,9 +11,14 @@ class UsersController < ApplicationController
     erb :"/users/show.html"
   end
 
-  # GET: /users/5/edit
-  get "/users/:id/edit" do
-    erb :"/users/edit.html"
+
+  get "/users/:slug/edit" do
+    if logged_in? && User.find_by_slug(params[:slug]) == current_user
+      @user = current_user
+      erb :"/users/edit.html"
+    else
+      redirect to("/users/#{current_user.slug}")
+    end
   end
 
   # PATCH: /users/5

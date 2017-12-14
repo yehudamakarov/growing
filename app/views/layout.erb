@@ -14,12 +14,22 @@
   <link rel="stylesheet" href="/stylesheets/main.css" />
 </head>
 <body>
-  <a href="/logout">Log Out</a>
   <div class="wrapper">
 
-    <% if logged_in? && request.path_info != "/tasks/new" %>
-      <a href="/tasks/new">New Task</a>
-    <% end %>
+    <div class="sidebar">
+      <ul>
+        <% if logged_in? && request.path_info != "/tasks/new" %>
+          <a href="/tasks/new">New Task</a>
+        <% end %><br>
+        <a href="/tasks">All Tasks</a><br>
+        <a href="/users">All Users</a><br>
+        <% if logged_in? %>
+          <a href="users/<%= current_user.slug %>/edit">Edit Profile</a><br>
+          <a href="/logout">Log Out</a><br>
+        <% end %>
+    </ul>
+    </div>
+
 
       <%= yield %>
 
@@ -28,9 +38,5 @@
     </footer>
   </div>
 
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-  <!--[if lt IE 7]>
-    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
-    <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
-  <![endif]-->
+
 </body>

@@ -19,8 +19,12 @@
       <% end %></br>
     </div>
 
-    <% if current_user == @task.user %>
+    <% if current_user == @task.user && logged_in? %>
       <a href="/users/<%= @task.user.slug %>/tasks/id/<%= @task.id %>/edit">Edit</a>
+      <form action="tasks/id/<%= @task.id %>/delete" method="post">
+        <input type="submit" value="Delete">
+        <input id="hidden" type="hidden" name="_method" value="delete">
+      </form>
     <% end %>
 
   </body>

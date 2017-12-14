@@ -1,4 +1,5 @@
 class Task < ActiveRecord::Base
+  validates_presence_of :user, :name
   belongs_to :user
   has_many :day_tasks
   has_many :days, through: :day_tasks

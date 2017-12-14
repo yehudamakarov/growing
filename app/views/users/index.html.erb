@@ -7,9 +7,10 @@
   <body>
     <h2>All Users</h2>
 
-    <%= @users.each do |u| %>
+    <% @users.sort_by {|u| u.username}.each do |u| %>
       <div>
         <a href="/users/<%= u.slug %>"><%= u.username %></a>
       </div>
+    <% end %>
   </body>
 </html>

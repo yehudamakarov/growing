@@ -1,1 +1,22 @@
-<h1>This is the Model's index page.</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>All Tasks</title>
+  </head>
+  <body>
+    <h2>All Tasks</h2>
+
+    <% @tasks.each do |t| %>
+      <div>
+        <h4>
+          <a href="tasks/id/<%= t.id %>"><%= t.name %></a>
+        </h4>
+        <ul>
+          <p>by, <%= t.user.username %> -- does this on, <%= t.which_days? %></p>
+        </ul>
+      </div>
+    <% end %>
+
+  </body>
+</html>

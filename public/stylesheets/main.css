@@ -70,7 +70,9 @@
 
   .sidebar ul {
     font-size: 14px;
+    text-align: right;
   }
+
 
   .branding {
     clear: both;

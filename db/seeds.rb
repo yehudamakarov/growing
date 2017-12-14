@@ -32,6 +32,6 @@ Task.create(name: "be amazing 1.1", effect: "this is amazing", user: fake_user).
 Task.create(name: "be amazing 1.2", effect: "this is amazing", user: fake_user).day_tasks.create(day: sunday)
 Task.create(name: "be amazing 2", effect: "this is amazing", user: fake_user).day_tasks.create(day: sunday)
 Task.create(name: "be amazing 3", effect: "this is amazing", user: fake_user).day_tasks.create(day: sunday)
-Task.create(name: "be amazing 4", effect: "this is amazing", user: fake_user).day_tasks.create(day: sunday)
+Task.create(name: "be amazing 4", effect: "this is amazing", user: fake_user).day_tasks.create(day: tuesday)
 Task.create(name: "be amazing 5", effect: "this is amazing", user: fake_user).day_tasks.create(day: sunday)
-Task.create(name: "be amazing 6", effect: "this is amazing", user: fake_user).day_tasks.create(day: sunday)
+Task.create(name: "be amazing 6", effect: "this is amazing", user: fake_user).day_tasks.create(day: monday)

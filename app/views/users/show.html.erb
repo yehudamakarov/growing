@@ -7,13 +7,85 @@
   <body>
     <h1><%= @user.username %></h1>
 
-    <a href="/users/<%= @user.slug %>/tasks/sunday">Sunday</a><br>
-    <a href="/users/<%= @user.slug %>/tasks/monday">Monday</a><br>
-    <a href="/users/<%= @user.slug %>/tasks/tuesday">Tuesday</a><br>
-    <a href="/users/<%= @user.slug %>/tasks/wednesday">Wednesday</a><br>
-    <a href="/users/<%= @user.slug %>/tasks/thursday">Thursday</a><br>
-    <a href="/users/<%= @user.slug %>/tasks/friday">Friday</a><br>
-    <a href="/users/<%= @user.slug %>/tasks/saturday">Saturday</a><br>
+    <table>
+      <tr>
+        <th>
+          <a href="/users/<%= @user.slug %>/tasks/sunday">Sunday</a><br>
+        </th>
+        <th>
+          <a href="/users/<%= @user.slug %>/tasks/monday">Monday</a><br>
+        </th>
+        <th>
+          <a href="/users/<%= @user.slug %>/tasks/tuesday">Tuesday</a><br>
+        </th>
+        <th>
+          <a href="/users/<%= @user.slug %>/tasks/wednesday">Wednesday</a><br>
+        </th>
+        <th>
+          <a href="/users/<%= @user.slug %>/tasks/thursday">Thursday</a><br>
+        </th>
+        <th>
+          <a href="/users/<%= @user.slug %>/tasks/friday">Friday</a><br>
+        </th>
+        <th>
+          <a href="/users/<%= @user.slug %>/tasks/saturday">Saturday</a><br>
+        </th>
+      </tr>
+      <tr>
+        <td>
+          <ul>
+            <% @user.day("sunday").each do |t| %>
+              <a href="tasks/id/<%= t.id %>"><%= t.name %></a><br>
+            <% end %>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <% @user.day("monday").each do |t| %>
+              <a href="tasks/id/<%= t.id %>"><%= t.name %></a><br>
+            <% end %>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <% @user.day("tuesday").each do |t| %>
+              <a href="tasks/id/<%= t.id %>"><%= t.name %></a><br>
+            <% end %>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <% @user.day("wednesday").each do |t| %>
+              <a href="tasks/id/<%= t.id %>"><%= t.name %></a><br>
+            <% end %>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <% @user.day("thursday").each do |t| %>
+              <a href="tasks/id/<%= t.id %>"><%= t.name %></a><br>
+            <% end %>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <% @user.day("friday").each do |t| %>
+              <a href="tasks/id/<%= t.id %>"><%= t.name %></a><br>
+            <% end %>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <% @user.day("saturday").each do |t| %>
+              <a href="tasks/id/<%= t.id %>"><%= t.name %></a><br>
+            <% end %>
+          </ul>
+        </td>
+
+      </tr>
+    </table>
+
+
 
   </body>
 </html>
