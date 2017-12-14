@@ -10,7 +10,6 @@ class TasksController < ApplicationController
   get '/users/:slug/tasks/id/:id' do
     @user = User.find_by_slug(params[:slug])
     @task = Task.find_by_id(params[:id])
-    binding.pry
     erb :"tasks/show.html"
   end
 
@@ -18,6 +17,11 @@ class TasksController < ApplicationController
     @user = User.find_by_slug(params[:slug])
     @task = Task.find_by_id(params[:id])
     erb :"tasks/edit.html"
+  end
+
+  get '/tasks/new' do
+    @user = current_user
+    erb :"tasks/new.html"
   end
 
 
