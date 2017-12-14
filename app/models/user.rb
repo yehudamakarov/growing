@@ -12,6 +12,6 @@ class User < ActiveRecord::Base
   end
 
   def day(day_of_week)
-    self.tasks.find_all {|t| t.day == day_of_week}
+    self.tasks.find_all {|t| t.day.downcase == day_of_week.downcase}
   end
 end

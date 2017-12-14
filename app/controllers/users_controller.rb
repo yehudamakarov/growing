@@ -5,16 +5,6 @@ class UsersController < ApplicationController
     erb :"/users/index.html"
   end
 
-  # GET: /users/new
-  get "/users/new" do
-    erb :"/users/new.html"
-  end
-
-  # POST: /users
-  post "/users" do
-    redirect "/users"
-  end
-
   get "/users/:slug" do
     @user = User.find_by_slug(params[:slug])
     erb :"/users/show.html"

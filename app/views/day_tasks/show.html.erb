@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= @day %></title>
+  </head>
+  <body>
+    <%= @day %>
+    <%= @user.username %>
+
+    <% @day_tasks.each do |t| %>
+      <div>
+        <a href="/users/<%= t.user.slug %>/tasks/id/<%= t.id %>"><%= t.name %></a>
+      </div>
+    <% end %>
+  </body>
+</html>
