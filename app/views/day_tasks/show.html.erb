@@ -2,13 +2,13 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title><%= @day %></title>
+    <title><%= @day.name.capitalize %></title>
   </head>
   <body>
-    <%= @day %>
-    <%= @user.username %>
+    <h2>Things that might be awesome to do this <%= @day.name.capitalize %></h2>
 
-    <% @day_tasks.each do |t| %>
+
+    <% @tasks_of_the_day.each do |t| %>
       <div>
         <a href="/tasks/id/<%= t.id %>"><%= t.name %></a>
       </div>

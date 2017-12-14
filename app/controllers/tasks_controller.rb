@@ -2,8 +2,8 @@ class TasksController < ApplicationController
 
   get '/users/:slug/tasks/:day' do
     @user = User.find_by_slug(params[:slug])
-    @day_tasks = @user.day(params[:day])
-    @day = params[:day].capitalize
+    @tasks_of_the_day = @user.day(params[:day])
+    @day = Day.find_by(name: params[:day])
     erb :"day_tasks/show.html"
   end
 

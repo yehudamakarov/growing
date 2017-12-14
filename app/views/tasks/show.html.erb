@@ -6,8 +6,18 @@
   </head>
   <body>
     <h2><%= @task.name %></h2>
-    <p><%= @task.effect %></p>
-    <p><%= @task.day.split(", ").map{|d| d.capitalize}.join(", ") %></p>
+
+    <div>
+      <h4>What it was like last time:</h4><br>
+      <p><%= @task.effect %></p>
+    </div></br>
+
+    <div>
+      <h4>Probably a good thing to do on:</h4><br>
+      <% @task.days.each do |d| %>
+        <a href="/users/<%= @user.slug %>/tasks/<%= d.name %>"><%= d.name.capitalize %></a><br>
+      <% end %></br>
+    </div>
 
     <% if current_user == @task.user %>
       <a href="/users/<%= @task.user.slug %>/tasks/id/<%= @task.id %>/edit">Edit</a>

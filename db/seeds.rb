@@ -4,13 +4,13 @@ user = User.create(username: "testuser", email: "testuser@gmail.com", password: 
 
 fake_user = User.create(username: "fakeuser", email: "fakeuser@gmail.com", password: "password")
 
-sunday = Day.create(name: "Sunday")
-monday = Day.create(name: "Monday")
-tuesday = Day.create(name: "Tuesday")
-wednesday = Day.create(name: "Wednesday")
-thursday = Day.create(name: "Thursday")
-friday = Day.create(name: "Friday")
-saturday = Day.create(name: "Saturday")
+sunday = Day.create(name: "sunday")
+monday = Day.create(name: "monday")
+tuesday = Day.create(name: "tuesday")
+wednesday = Day.create(name: "wednesday")
+thursday = Day.create(name: "thursday")
+friday = Day.create(name: "friday")
+saturday = Day.create(name: "saturday")
 
 task = Task.create(name: "eat a good breakfast", effect: "I'll be energetic!", user: user)
 

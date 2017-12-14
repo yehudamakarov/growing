@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   end
 
   def day(day_of_week)
-    day = Day.find_by(name: day_of_week.capitalize)
+    day = Day.find_by(name: day_of_week.downcase)
     day.tasks.find_all {|t| t.user == self}
   end
 end
