@@ -28,7 +28,6 @@ class TasksController < ApplicationController
   post '/tasks' do
     @user = current_user
     params[:task][:user] = @user
-
     @task = Task.create(params[:task])
 
     redirect to("/tasks/id/#{@task.id}")
@@ -48,9 +47,7 @@ class TasksController < ApplicationController
     @task = Task.find_by_id(params[:id])
     @task.day_tasks.each {|d_t| d_t.destroy}
     @task.destroy
-    redirect to("users/#{@task.user.slug}")
-
-
+    redirect to("/users/#{@task.user.slug}")
   end
 
 

@@ -8,10 +8,34 @@
     <h2>Things that might be awesome to do this <%= @day.name.capitalize %></h2>
 
 
-    <% @tasks_of_the_day.each do |t| %>
-      <div>
-        <a href="/tasks/id/<%= t.id %>"><%= t.name %></a>
-      </div>
-    <% end %>
+    <table>
+
+      <% @tasks_of_the_day.each do |t| %>
+        <tr>
+          <td>
+            <form class="" action="/tasks/id/<%= t.id %>" method="get">
+              <input type="submit" value="<%= t.name %>">
+            </form>
+          </td>
+          <td>
+            <% if current_user == t.user && logged_in? %>
+              <form action="/tasks/id/<%= t.id %>/edit" method="get">
+                <input type="submit" value="Edit">
+              </form>
+            <% end %>
+          </td>
+          <td>
+            <% if current_user == t.user && logged_in? %>
+              <form action="tasks/id/<%= t.id %>/delete" method="post">
+                <input type="submit" value="Delete">
+                <input id="hidden" type="hidden" name="_method" value="delete">
+              </form>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+
+    </table>
+
   </body>
 </html>
