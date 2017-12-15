@@ -18,13 +18,20 @@
 
     <div class="sidebar">
       <ul>
+        <% unless logged_in? %>
+          <a href="/login">Log In</a><br>
+          <a href="/signup">Sign Up</a><br>
+        <% end %>
         <% if logged_in? && request.path_info != "/tasks/new" %>
           <a href="/tasks/new">New Task</a>
         <% end %><br>
+        <% if logged_in? %>
+          <a href="/users/<%= current_user.slug %>">My Week</a><br>
+        <% end %>
         <a href="/tasks">All Tasks</a><br>
         <a href="/users">All Users</a><br>
         <% if logged_in? %>
-          <a href="users/<%= current_user.slug %>/edit">Edit Profile</a><br>
+          <a href="/users/<%= current_user.slug %>/edit">Edit Profile</a><br>
           <a href="/logout">Log Out</a><br>
         <% end %>
     </ul>

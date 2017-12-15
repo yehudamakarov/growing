@@ -13,7 +13,7 @@
           <a href="tasks/id/<%= t.id %>"><%= t.name %></a>
         </h3>
         <ul>
-          <p>by, <a href="/users/<%= t.user.slug %>"><b><em><%= t.user.username %></em></b></a> -- does this on, <b><em><%= t.which_days? %></em></b></p>
+          <p>by, <a href="/users/<%= t.user.slug %>"><b><em><%= t.user.username %></em></b></a> -- does this on, <b><em><%= t.which_days_string %></em></b></p>
         </ul>
       </div>
     <% end %>

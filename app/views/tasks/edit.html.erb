@@ -2,9 +2,26 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>New Task</title>
+    <title>Edit Task</title>
   </head>
   <body>
-    
+    <h2>Editing <%= @task.name %></h2>
+
+    <div>
+      <form class="" action="/tasks/id/<%= @task.id %>" method="post">
+        <input type="text" name="task[name]" value="<%= @task.name %>"><br></br>
+        <textarea name="task[effect]" rows="6" cols="60"><%= @task.effect %></textarea><br></br>
+        <input type="checkbox" name="task[day_ids][]" value="<%= @days[0].id %>" <%= 'checked' if @task.which_days_string.downcase.include?("sunday") %>>Sunday</input><br>
+        <input type="checkbox" name="task[day_ids][]" value="<%= @days[1].id %>" <%= 'checked' if @task.which_days_string.downcase.include?("monday") %>>Monday</input><br>
+        <input type="checkbox" name="task[day_ids][]" value="<%= @days[2].id %>" <%= 'checked' if @task.which_days_string.downcase.include?("tuesday") %>>Tuesday</input><br>
+        <input type="checkbox" name="task[day_ids][]" value="<%= @days[3].id %>" <%= 'checked' if @task.which_days_string.downcase.include?("wednesday") %>>Wednesday</input><br>
+        <input type="checkbox" name="task[day_ids][]" value="<%= @days[4].id %>" <%= 'checked' if @task.which_days_string.downcase.include?("thursday") %>>Thursday</input><br>
+        <input type="checkbox" name="task[day_ids][]" value="<%= @days[5].id %>" <%= 'checked' if @task.which_days_string.downcase.include?("friday") %>>Friday</input><br>
+        <input type="checkbox" name="task[day_ids][]" value="<%= @days[6].id %>" <%= 'checked' if @task.which_days_string.downcase.include?("saturday") %>>Saturday</input><br></br>
+        <input id="hidden" type="hidden" name="_method" value="patch">
+        <input type="submit" value="Save Task"><br>
+      </form>
+  </div>
+
   </body>
 </html>

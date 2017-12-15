@@ -12,7 +12,11 @@ class Task < ActiveRecord::Base
     Task.all.find {|u| u.slug == slug}
   end
 
-  def which_days?
+  def which_days_string
     self.days.map {|d| d.name.capitalize}.join(", ")
+  end
+
+  def which_days_objects
+    self.days
   end
 end

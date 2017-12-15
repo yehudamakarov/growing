@@ -36,18 +36,34 @@ class TasksController < ApplicationController
   get '/tasks/id/:id/edit' do
     @task = Task.find_by_id(params[:id])
     @user = @task.user
-    erb :"tasks/edit.html"
+    @days = Day.all
+    if current_user == @user
+      erb :"tasks/edit.html"
+    else
+      redirect to("/users/#{current_user.slug}")
+    end
   end
 
-  patch '/' do
-
+  patch '/tasks/id/:id' do
+    @task = Task.find_by_id(params[:id])
+    @task.update(params[:task])
+    if @task.save
+      redirect to("/tasks/id/#{@task.id}")
+    else
+      redirect to("/tasks/id/#{@task.id}/edit")
+    end
   end
 
   delete '/tasks/id/:id/delete' do
     @task = Task.find_by_id(params[:id])
-    @task.day_tasks.each {|d_t| d_t.destroy}
-    @task.destroy
-    redirect to("/users/#{@task.user.slug}")
+    if current_user == @task.user
+      @task.day_tasks.each {|d_t| d_t.destroy}
+      @task.destroy
+      redirect to("/users/#{@task.user.slug}")
+    else
+      redirect to("/users/#{current_user.slug}")
+    end
+
   end
 
 
