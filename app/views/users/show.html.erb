@@ -6,6 +6,10 @@
   </head>
   <body>
     <h1><%= @user.username %></h1>
+    <% if current_user == @user %>
+      <h4>Email: <%= @user.email %></h4>
+    <% end %>
+
 
     <table>
       <tr>
@@ -49,63 +53,51 @@
         <td>
           <ul>
             <% @user.day("sunday").each do |t| %>
-              <form action="/tasks/id/<%= t.id %>" method="get">
-                <input type="submit" value="<%= t.name %>">
-              </form>
+
+              <a href="/tasks/id/<%= t.id %>"><%= t.name %></a><br>
+
             <% end %>
           </ul>
         </td>
         <td>
           <ul>
             <% @user.day("monday").each do |t| %>
-              <form action="/tasks/id/<%= t.id %>" method="get">
-                <input type="submit" value="<%= t.name %>">
-              </form>
+              <a href="/tasks/id/<%= t.id %>"><%= t.name %></a><br>
             <% end %>
           </ul>
         </td>
         <td>
           <ul>
             <% @user.day("tuesday").each do |t| %>
-              <form action="/tasks/id/<%= t.id %>" method="get">
-                <input type="submit" value="<%= t.name %>">
-              </form>
+              <a href="/tasks/id/<%= t.id %>"><%= t.name %></a><br>
             <% end %>
           </ul>
         </td>
         <td>
           <ul>
             <% @user.day("wednesday").each do |t| %>
-              <form action="/tasks/id/<%= t.id %>" method="get">
-                <input type="submit" value="<%= t.name %>">
-              </form>
+              <a href="/tasks/id/<%= t.id %>"><%= t.name %></a><br>
             <% end %>
           </ul>
         </td>
         <td>
           <ul>
             <% @user.day("thursday").each do |t| %>
-              <form action="/tasks/id/<%= t.id %>" method="get">
-                <input type="submit" value="<%= t.name %>">
-              </form>
+              <a href="/tasks/id/<%= t.id %>"><%= t.name %></a><br>
             <% end %>
           </ul>
         </td>
         <td>
           <ul>
             <% @user.day("friday").each do |t| %>
-              <form action="/tasks/id/<%= t.id %>" method="get">
-                <input type="submit" value="<%= t.name %>">
-              </form>
+              <a href="/tasks/id/<%= t.id %>"><%= t.name %></a><br>
             <% end %>
           </ul>
         </td>
         <td>
           <ul>
             <% @user.day("saturday").each do |t| %>
-              <form action="/tasks/id/<%= t.id %>" method="get">
-                <input type="submit" value="<%= t.name %>">
-              </form>
+              <a href="/tasks/id/<%= t.id %>"><%= t.name %></a><br>
             <% end %>
           </ul>
         </td>

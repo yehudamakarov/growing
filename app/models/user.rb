@@ -17,4 +17,10 @@ class User < ActiveRecord::Base
     day = Day.find_by(name: day_of_week.downcase)
     day.tasks.find_all {|t| t.user == self}
   end
+
+  def delete_all_tasks
+    self.tasks.each do |t|
+      t.destroy
+    end
+  end
 end

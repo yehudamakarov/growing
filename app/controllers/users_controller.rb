@@ -21,13 +21,19 @@ class UsersController < ApplicationController
     end
   end
 
-  # PATCH: /users/5
-  patch "/users/:id" do
-    redirect "/users/:id"
+
+  patch "/users/:slug" do
+    @user = User.find_by_slug(params[:slug])
+    @user.update(params[:user])
+    redirect "/users/#{@user.slug}"
   end
 
-  # DELETE: /users/5/delete
-  delete "/users/:id/delete" do
-    redirect "/users"
+
+  delete "/users/:slug/delete" do
+    @user = User.find_by_slug(params[:slug])
+    @user.delete_all_tasks
+    @user.destroy
+    session.clear
+    redirect "/"
   end
 end
