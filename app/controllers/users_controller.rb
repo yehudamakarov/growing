@@ -1,6 +1,6 @@
 require 'rack-flash'
 class UsersController < ApplicationController
-  
+
 use Rack::Flash
 
   get "/users" do
@@ -19,6 +19,7 @@ use Rack::Flash
       @user = current_user
       erb :"/users/edit.html"
     else
+      flash[:message] = "Maybe you need to be logged in to do that."
       redirect to("/users/#{current_user.slug}")
     end
   end
