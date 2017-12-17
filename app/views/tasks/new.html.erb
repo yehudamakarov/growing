@@ -5,6 +5,9 @@
     <title>New Task</title>
   </head>
   <body>
+    <% if flash.has?(:message) %>
+      <h2><%= flash[:message] %></h2>
+    <% end %>
     <h2>New Task for <%= @user.username %></h2>
 
     <div>

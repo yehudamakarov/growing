@@ -31,9 +31,11 @@ use Rack::Flash
   post '/tasks' do
     @user = current_user
     params[:task][:user] = @user
-    @task = Task.create(params[:task])
-
-    redirect to("/tasks/id/#{@task.id}")
+    if @task = Task.create(params[:task])
+      redirect to("/tasks/id/#{@task.id}")
+    else
+      flash[:message] = "Maybe you forgot to name your task."
+      redirect to('/tasks/new')
   end
 
   get '/tasks/id/:id/edit' do
