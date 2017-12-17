@@ -65,6 +65,7 @@ use Rack::Flash
       session[:user_id] = @user.id
       redirect to("/users/#{@user.slug}")
     else
+      flash[:message] = "Please try to log in again. Check your username and your password."
       redirect to('/login')
     end
   end
