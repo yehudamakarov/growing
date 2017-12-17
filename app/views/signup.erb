@@ -5,6 +5,9 @@
     <title>Sign Up</title>
   </head>
   <body>
+    <% if flash.has?(:message) %>
+      <h2><%= flash[:message] %></h2>
+    <% end %>
 
     <form class="" action="/signup" method="post">
       <input type="text" name="username" placeholder="Username">

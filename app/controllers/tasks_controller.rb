@@ -1,4 +1,7 @@
+require 'rack-flash'
 class TasksController < ApplicationController
+
+use Rack::Flash
 
   get '/tasks' do
     @tasks = Task.all.sort_by {|t| t.name}

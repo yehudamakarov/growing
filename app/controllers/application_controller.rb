@@ -1,6 +1,9 @@
 require './config/environment'
+require 'rack-flash'
 
 class ApplicationController < Sinatra::Base
+
+use Rack::Flash
 
   configure do
     set :public_folder, 'public'
@@ -42,6 +45,7 @@ class ApplicationController < Sinatra::Base
       session[:user_id] = @user.id
       redirect to("/users/#{@user.slug}")
     else
+      flash[:message] = "Please try again. Make sure your email is valid. And that you entered a password. If your email is valid, and you entered a password, please select a different username, as someone is using yours."
       redirect to('/signup')
     end
   end
