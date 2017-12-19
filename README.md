@@ -8,11 +8,11 @@ Write down why you would want to do it again, so next time, in case you don't fe
 
 For now, clone the repository, (download the folder containing all the code to you machine,) `cd` to the directory, (open a command prompt window and make sure you navigate to the folder holding all the code.)
 
-Enter `bundle install`
+Enter `bundle install`.
 
-Enter `rake db:migrate`
+Enter `rake db:migrate`.
 
-Enter `rake db:seed`
+Enter `rake db:seed`.
 
 Run Shotgun!
 
