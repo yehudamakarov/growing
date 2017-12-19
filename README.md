@@ -6,9 +6,11 @@ Write down why you would want to do it again, so next time, in case you don't fe
 
 ## Install Instructions
 
-For now, clone the repository, (download the folder containing all the code to you machine,) `cd` to the directory, (open a command prompt window and make sure you navigate to the folder holding all the code,) and run the shotgun gem!
+For now, clone the repository, (download the folder containing all the code to you machine,) `cd` to the directory, (open a command prompt window and make sure you navigate to the folder holding all the code.)
 
-This will launch a server on your machine, go there, and signup. Then you can see your homepage which is a week view of tasks that you can add. The sidebar has relevant links depending on where in the app you find yourself.
+Run Shotgun!
+
+This will launch a server on your machine, go there, and signup. Then you can see your homepage which is a week view of tasks that you can add and edit. The sidebar has relevant links depending on where in the app you find yourself and depending on what you want to do.
 
 ## Contributing
 
