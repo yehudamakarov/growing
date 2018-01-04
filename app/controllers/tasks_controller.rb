@@ -12,7 +12,7 @@ class TasksController < ApplicationController
     @user = User.find_by_slug(params[:slug])
     @tasks_of_the_day = @user.day(params[:day])
     @day = Day.find_by(name: params[:day])
-    erb :"day_tasks/show.html"
+    erb :"day_of_the_week_tasks/show.html"
   end
 
 

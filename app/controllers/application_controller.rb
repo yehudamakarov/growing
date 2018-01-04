@@ -23,8 +23,12 @@ use Rack::Flash
   end
 
   get "/" do
-    unless logged_in?
+    if !logged_in?
       erb :index
+    elsif current_user == nil
+      session.clear
+      redirect to('/')
+      flash[:message] = 'It seems there was some database error. Kindly log in or sign up. Happy growing.'
     else
       redirect to("/users/#{current_user.slug}")
     end

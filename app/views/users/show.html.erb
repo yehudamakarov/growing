@@ -5,9 +5,9 @@
     <title><%= @user.username %></title>
   </head>
   <body>
-    <h1><%= @user.username %></h1>
+    <h1>Welcome, <%= @user.username %></h1>
     <% if current_user == @user %>
-      <h4>Email: <%= @user.email %></h4>
+      <h4>Email on file: <%= @user.email %></h4>
     <% end %>
 
 
