@@ -26,9 +26,13 @@ use Rack::Flash
 
 
   patch "/users/:slug" do
-    @user = User.find_by_slug(params[:slug])
-    @user.update(params[:user])
-    redirect "/users/#{@user.slug}"
+    if User.find_by_slug(params[:slug]) == current_user && logged_in?
+      @user = User.find_by_slug(params[:slug])
+      @user.update(params[:user])
+      redirect "/users/#{@user.slug}"
+    else
+      redirect to('/')
+    end
   end
 
 
