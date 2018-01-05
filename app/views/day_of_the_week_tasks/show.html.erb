@@ -39,5 +39,9 @@
 
     </table>
 
+    <form action="/tasks/new" method="get">
+      <input type="submit" name="<%= @day.name %>" value="New <%= @day.name.capitalize %> Task">
+    </form>
+
   </body>
 </html>

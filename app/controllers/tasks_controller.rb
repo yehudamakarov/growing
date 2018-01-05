@@ -25,7 +25,12 @@ class TasksController < ApplicationController
   get '/tasks/new' do
     @user = current_user
     @days = Day.all
+    if request.referer.include?("#{@user.slug}/tasks")
+      which_day_adding_a_task_to = request.referer.match(/[^\/]+$/).to_s.delete("?")
+      @precheck = which_day_adding_a_task_to
+    end
     erb :"tasks/new.html"
+
   end
 
   post '/tasks' do

@@ -12,15 +12,15 @@
 
     <div>
       <form class="" action="/tasks" method="post">
-        <input type="text" name="task[name]" value=""placeholder="What did you do?"><br></br>
-        <textarea name="task[effect]" rows="6" cols="60" placeholder="How was this good for you? What will happen in the future when you do it again? What was the effect?"></textarea><br></br>
-        <input type="checkbox" name="task[day_ids][]" value="<%= @days[0].id %>">Sunday</input><br>
-        <input type="checkbox" name="task[day_ids][]" value="<%= @days[1].id %>">Monday</input><br>
-        <input type="checkbox" name="task[day_ids][]" value="<%= @days[2].id %>">Tuesday</input><br>
-        <input type="checkbox" name="task[day_ids][]" value="<%= @days[3].id %>">Wednesday</input><br>
-        <input type="checkbox" name="task[day_ids][]" value="<%= @days[4].id %>">Thursday</input><br>
-        <input type="checkbox" name="task[day_ids][]" value="<%= @days[5].id %>">Friday</input><br>
-        <input type="checkbox" name="task[day_ids][]" value="<%= @days[6].id %>">Saturday</input><br></br>
+        <input type="text" name="task[name]" value=""placeholder="What did you do? What would you like to do"><br></br>
+        <textarea name="task[effect]" rows="6" cols="60" placeholder="How was this good for you? What will happen in the future when you do it again? What was the effect? Or what do you want it to be?"></textarea><br></br>
+        <input type="checkbox" name="task[day_ids][]" value="<%= @days[0].id %>" <%= 'checked' if @precheck == 'sunday' %>>Sunday</input><br>
+        <input type="checkbox" name="task[day_ids][]" value="<%= @days[1].id %>" <%= 'checked' if @precheck == 'monday' %>>Monday</input><br>
+        <input type="checkbox" name="task[day_ids][]" value="<%= @days[2].id %>" <%= 'checked' if @precheck == 'tuesday' %>>Tuesday</input><br>
+        <input type="checkbox" name="task[day_ids][]" value="<%= @days[3].id %>" <%= 'checked' if @precheck == 'wednesday' %>>Wednesday</input><br>
+        <input type="checkbox" name="task[day_ids][]" value="<%= @days[4].id %>" <%= 'checked' if @precheck == 'thursday' %>>Thursday</input><br>
+        <input type="checkbox" name="task[day_ids][]" value="<%= @days[5].id %>"<%= 'checked' if @precheck == 'friday' %>>Friday</input><br>
+        <input type="checkbox" name="task[day_ids][]" value="<%= @days[6].id %>" <%= 'checked' if @precheck == 'saturday' %>>Saturday</input><br></br>
         <input type="submit" value="Create Task"><br>
       </form>
   </div>
