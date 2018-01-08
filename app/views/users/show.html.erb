@@ -11,99 +11,101 @@
     <% end %>
 
 
-    <table>
-      <tr>
-        <th>
-          <form action="/users/<%= @user.slug %>/tasks/sunday" method="get">
-            <input type="submit" value="Sunday">
-          </form><br>
-        </th>
-        <th>
-          <form action="/users/<%= @user.slug %>/tasks/monday" method="get">
-            <input type="submit" value="Monday">
-          </form><br>
-        </th>
-        <th>
-          <form action="/users/<%= @user.slug %>/tasks/tuesday" method="get">
-            <input type="submit" value="Tuesday">
-          </form><br>
-        </th>
-        <th>
-          <form action="/users/<%= @user.slug %>/tasks/wednesday" method="get">
-            <input type="submit" value="Wednesday">
-          </form><br>
-        </th>
-        <th>
-          <form action="/users/<%= @user.slug %>/tasks/thursday" method="get">
-            <input type="submit" value="Thursday">
-          </form><br>
-        </th>
-        <th>
-          <form action="/users/<%= @user.slug %>/tasks/friday" method="get">
-            <input type="submit" value="Friday">
-          </form><br>
-        </th>
-        <th>
-          <form action="/users/<%= @user.slug %>/tasks/saturday" method="get">
-            <input type="submit" value="Saturday">
-          </form><br>
-        </th>
-      </tr>
-      <tr>
-        <td>
-          <ul>
-            <% @user.day("sunday").each do |t| %>
+    <div class="flex mxn2">
+      <table>
+        <tr>
+          <th>
+            <form action="/users/<%= @user.slug %>/tasks/sunday" method="get">
+              <input type="submit" value="Sunday">
+            </form><br>
+          </th>
+          <th>
+            <form action="/users/<%= @user.slug %>/tasks/monday" method="get">
+              <input type="submit" value="Monday">
+            </form><br>
+          </th>
+          <th>
+            <form action="/users/<%= @user.slug %>/tasks/tuesday" method="get">
+              <input type="submit" value="Tuesday">
+            </form><br>
+          </th>
+          <th>
+            <form action="/users/<%= @user.slug %>/tasks/wednesday" method="get">
+              <input type="submit" value="Wednesday">
+            </form><br>
+          </th>
+          <th>
+            <form action="/users/<%= @user.slug %>/tasks/thursday" method="get">
+              <input type="submit" value="Thursday">
+            </form><br>
+          </th>
+          <th>
+            <form action="/users/<%= @user.slug %>/tasks/friday" method="get">
+              <input type="submit" value="Friday">
+            </form><br>
+          </th>
+          <th>
+            <form action="/users/<%= @user.slug %>/tasks/saturday" method="get">
+              <input type="submit" value="Saturday">
+            </form><br>
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <ul>
+              <% @user.day("sunday").each do |t| %>
 
-              <a href="/tasks/id/<%= t.id %>"><%= t.name %></a><br>
+                <a href="/tasks/id/<%= t.id %>"><%= t.name %></a><br>
 
-            <% end %>
-          </ul>
-        </td>
-        <td>
-          <ul>
-            <% @user.day("monday").each do |t| %>
-              <a href="/tasks/id/<%= t.id %>"><%= t.name %></a><br>
-            <% end %>
-          </ul>
-        </td>
-        <td>
-          <ul>
-            <% @user.day("tuesday").each do |t| %>
-              <a href="/tasks/id/<%= t.id %>"><%= t.name %></a><br>
-            <% end %>
-          </ul>
-        </td>
-        <td>
-          <ul>
-            <% @user.day("wednesday").each do |t| %>
-              <a href="/tasks/id/<%= t.id %>"><%= t.name %></a><br>
-            <% end %>
-          </ul>
-        </td>
-        <td>
-          <ul>
-            <% @user.day("thursday").each do |t| %>
-              <a href="/tasks/id/<%= t.id %>"><%= t.name %></a><br>
-            <% end %>
-          </ul>
-        </td>
-        <td>
-          <ul>
-            <% @user.day("friday").each do |t| %>
-              <a href="/tasks/id/<%= t.id %>"><%= t.name %></a><br>
-            <% end %>
-          </ul>
-        </td>
-        <td>
-          <ul>
-            <% @user.day("saturday").each do |t| %>
-              <a href="/tasks/id/<%= t.id %>"><%= t.name %></a><br>
-            <% end %>
-          </ul>
-        </td>
+              <% end %>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <% @user.day("monday").each do |t| %>
+                <a href="/tasks/id/<%= t.id %>"><%= t.name %></a><br>
+              <% end %>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <% @user.day("tuesday").each do |t| %>
+                <a href="/tasks/id/<%= t.id %>"><%= t.name %></a><br>
+              <% end %>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <% @user.day("wednesday").each do |t| %>
+                <a href="/tasks/id/<%= t.id %>"><%= t.name %></a><br>
+              <% end %>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <% @user.day("thursday").each do |t| %>
+                <a href="/tasks/id/<%= t.id %>"><%= t.name %></a><br>
+              <% end %>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <% @user.day("friday").each do |t| %>
+                <a href="/tasks/id/<%= t.id %>"><%= t.name %></a><br>
+              <% end %>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <% @user.day("saturday").each do |t| %>
+                <a href="/tasks/id/<%= t.id %>"><%= t.name %></a><br>
+              <% end %>
+            </ul>
+          </td>
 
-      </tr>
-    </table>
+        </tr>
+      </table>
+    </div>
 
 
 

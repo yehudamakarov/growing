@@ -3,39 +3,61 @@
   <meta charset="utf-8" />
   <title>Growing</title>
   <link rel="stylesheet" href="/stylesheets/main.css">
+  <link href="https://unpkg.com/basscss@7.1.1/css/basscss.min.css" rel="stylesheet">
   <link rel="icon" href="/favicon.ico">
 </head>
 <body>
-  <div>
 
-    <div class="sidebar">
-      <ul>
+
+
+  <div class="flex flex-column" style="min-height:100vh">
+
+    <nav class="clearfix white bg-black">
+
+      <div class="sm-col">
         <% unless logged_in? %>
-          <a href="/login">Log In</a><br>
-          <a href="/signup">Sign Up</a><br>
+          <a href="/login" class="btn py2">Log In</a>
+          <a href="/signup" class="btn py2">Sign Up</a>
         <% end %>
-        <% if logged_in? && request.path_info != "/tasks/new" %>
-          <a href="/tasks/new">New Task</a>
-        <% end %><br>
+      </div>
+
+      <div class="sm-col">
         <% if logged_in? %>
-          <a href="/users/<%= current_user.slug %>">My Week</a><br>
+          <a href="/users/<%= current_user.slug %>" class="btn py2">My Week</a>
+          <a href="/tasks/new" class="btn py2">New Task</a>
         <% end %>
-        <a href="/tasks">All Tasks</a><br>
-        <a href="/users">All Users</a><br>
+      </div>
+
+      <div class="sm-col">
+        <a href="/tasks" class="btn py2">All Tasks</a>
+        <a href="/users" class="btn py2">All Users</a>
+      </div>
+
+      <div class="sm-col-right">
         <% if logged_in? %>
-          <a href="/users/<%= current_user.slug %>/edit">Edit Profile</a><br>
-          <a href="/logout">Log Out</a><br>
+          <a href="/users/<%= current_user.slug %>/edit" class="btn py2">Edit Profile</a>
+          <a href="/logout" class="btn py2">Log Out</a>
         <% end %>
-      </ul>
+      </div>
+
+    </nav>
+
+    <div class="flex-auto">
+      <div class="mx-auto col-8">
+        <%= yield %>
+      </div>
     </div>
 
+    <div id="footer">
+      <footer>
+        <small>&copy; 2017 <strong>Growing</strong></small>
+      </footer>
+    </div>
 
-      <%= yield %>
-
-    <footer>
-      <small>&copy; 2017 <strong>Growing</strong></small>
-    </footer>
   </div>
+
+
+
 
 
 </body>
